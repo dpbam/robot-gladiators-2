@@ -1,4 +1,5 @@
 alert('Welcome to Robot Gladiators!');
+alert("Wait...I don't know your robot's name.");
 
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
@@ -102,24 +103,45 @@ var fight = function (enemyName) {
   }
 };
 
-// fight each enemy robot looping over them and fighting them one at a time
-for (var i = 0; i < enemyNames.length; i++) {
-  if (playerHealth > 0) {
-    // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-    window.alert(
-      'Welcome to Robot Gladiators, ' + playerName + '! Round ' + (i + 1)
-    );
+// function to start a new game
+var startGame = function () {
+  // reset player stats
+  playerHealth = 100;
+  playerAttack = 10;
+  playerMoney = 10;
 
-    // pick new enemy to fight based on the index of the enemyNames array
-    var pickedEnemyName = enemyNames[i];
+  // fight each enemy robot looping over them and fighting them one at a time
+  for (var i = 0; i < enemyNames.length; i++) {
+    if (playerHealth > 0) {
+      // let player know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
+      window.alert(
+        'Welcome to Robot Gladiators, ' +
+          playerName +
+          '! Round ' +
+          (i + 1) +
+          ':'
+      );
 
-    // reset enemyHealth before starting new fight
-    enemyHealth = 50;
+      // pick new enemy to fight based on the index of the enemyNames array
+      var pickedEnemyName = enemyNames[i];
 
-    // use debugger to pause script from running and check what's going on at that moment in the code
-    debugger;
+      // reset enemyHealth before starting new fight
+      enemyHealth = 50;
 
-    // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
-    fight(pickedEnemyName);
+      // use debugger to pause script from running and check what's going on at that moment in the code
+      debugger;
+
+      // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter
+      fight(pickedEnemyName);
+    }
+    // else {
+    //   window.alert('You have lost your bot. Game over.');
+    //   break;
+    // }
   }
-}
+  // play again
+  startGame();
+};
+
+// start the game when the page loads
+startGame();
