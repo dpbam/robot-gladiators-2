@@ -120,7 +120,7 @@ var startGame = function () {
           (i + 1) +
           ':'
       );
-      // debugger;
+      debugger;
 
       // pick new enemy to fight based on the index of the enemy.names array
       var pickedEnemyObj = enemyInfo[i];
@@ -131,7 +131,7 @@ var startGame = function () {
       pickedEnemyObj.health = randomNumber(40, 60);
 
       // use debugger to pause script from running and check what's going on at that moment in the code
-      debugger;
+      // debugger;
 
       // pass the pickedenemy.name variable's value into the fight function, where it will assume the value of the enemy.name parameter
       fight(pickedEnemyObj);
