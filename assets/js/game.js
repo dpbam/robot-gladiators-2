@@ -109,7 +109,6 @@ var fight = function (enemy) {
 var startGame = function () {
   // reset player stats
   playerInfo.reset();
-
   // fight each enemy robot looping over them and fighting them one at a time
   for (var i = 0; i < enemyInfo.length; i++) {
     if (playerInfo.health > 0) {
@@ -121,6 +120,7 @@ var startGame = function () {
           (i + 1) +
           ':'
       );
+      // debugger;
 
       // pick new enemy to fight based on the index of the enemy.names array
       var pickedEnemyObj = enemyInfo[i];
